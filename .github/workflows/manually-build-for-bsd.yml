@@ -141,7 +141,7 @@ jobs:
 
       - run: ./ppkg bundle  ${{ github.event.inputs.target }}/${{ github.event.inputs.package-name }} ${{ github.event.inputs.bundle-type }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: ${{ github.event.inputs.package-name }}---${{ github.event.inputs.target }}.${{ github.event.inputs.profile }}${{ github.event.inputs.bundle-type }}
           path: '*${{ github.event.inputs.bundle-type }}'
@@ -179,7 +179,7 @@ jobs:
             run ./ppkg install ${{ github.event.inputs.target }}/${{ github.event.inputs.package-name }} --profile=${{ github.event.inputs.profile }} ${{ github.event.inputs.log-level }} ${{ needs.base.outputs.static }}
             run ./ppkg bundle  ${{ github.event.inputs.target }}/${{ github.event.inputs.package-name }} ${{ github.event.inputs.bundle-type }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: ${{ github.event.inputs.package-name }}---${{ github.event.inputs.target }}.${{ github.event.inputs.profile }}${{ github.event.inputs.bundle-type }}
           path: '*${{ github.event.inputs.bundle-type }}'

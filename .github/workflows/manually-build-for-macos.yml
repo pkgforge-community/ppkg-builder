@@ -97,7 +97,7 @@ jobs:
       - run: ./ppkg install macos-${{ github.event.inputs.target-version }}-${{ github.event.inputs.target-arch }}/${{ github.event.inputs.package-name }} --profile=${{ github.event.inputs.profile }} ${{ github.event.inputs.log-level }}
       - run: ./ppkg bundle  macos-${{ github.event.inputs.target-version }}-${{ github.event.inputs.target-arch }}/${{ github.event.inputs.package-name }} ${{ github.event.inputs.bundle-type }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: ${{ github.event.inputs.package-name }}-macos-${{ github.event.inputs.target-version }}-${{ github.event.inputs.target-arch }}.${{ github.event.inputs.profile }}${{ github.event.inputs.bundle-type }}
           path: '*${{ github.event.inputs.bundle-type }}'
@@ -113,7 +113,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: '*'
           path: .

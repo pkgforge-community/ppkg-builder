@@ -173,7 +173,7 @@ jobs:
       - id: filename
         run: printf 'FILENAME=%s\n' "$(ls *${{ github.event.inputs.bundle-type }})" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: ${{ steps.filename.outputs.FILENAME }}
           path: ${{ steps.filename.outputs.FILENAME }}
@@ -189,7 +189,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: '*'
           path: .
